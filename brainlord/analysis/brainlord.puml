@@ -1,0 +1,37 @@
+@startuml
+
+class BrainLord { 
+	play()
+	FeedBack checkGuess(Pattern) 
+} 
+
+class Player {
+	Pattern guess() 
+	giveFeedBack(FeedBack) 
+	win() 
+	lose() 
+} 
+
+class Pattern { 
+	generate() 
+	FeedBack check(Pattern) 
+	show() 
+} 
+
+class FeedBack { 
+	bool isFinished() 
+	show() 
+} 
+
+ 
+
+BrainLord *-- Player 
+BrainLord *-- Pattern 
+BrainLord ..> FeedBack 
+
+Player ..> Pattern 
+Player ..> FeedBack 
+
+Pattern ..> FeedBack
+
+@enduml
