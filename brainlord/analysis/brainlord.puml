@@ -1,6 +1,7 @@
 @startuml
 
 class BrainLord { 
+	NUM_ROUNDS
 	play()
 	FeedBack checkGuess(Pattern) 
 } 
@@ -13,17 +14,18 @@ class Player {
 } 
 
 class Pattern { 
+	validChars
 	generate() 
 	FeedBack check(Pattern) 
 	show() 
 } 
 
 class FeedBack { 
-	bool isFinished() 
+	bool isVictory() 
 	show() 
 } 
 
- 
+
 
 BrainLord *-- Player 
 BrainLord *-- Pattern 
