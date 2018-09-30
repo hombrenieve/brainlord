@@ -1,23 +1,16 @@
-/*
- * FeedBack.cpp
- *
- *  Created on: Sep 29, 2018
- *      Author: ediapab
- */
-
 #include "FeedBack.h"
 
-FeedBack::FeedBack() {
-	// TODO Auto-generated constructor stub
+FeedBack::FeedBack(int patternSize) :
+	size(patternSize),
+	rightlyPositionedCounter(0),
+	rightlyColoredCounter(0)
+{
 
 }
 
 FeedBack::~FeedBack() {
-	// TODO Auto-generated destructor stub
 }
 
 bool FeedBack::isVictory() {
-	return false;
+	return rightlyPositionedCounter == size;
 }
-
-

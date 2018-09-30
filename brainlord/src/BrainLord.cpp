@@ -1,20 +1,11 @@
-/*
- * BrainLord.cpp
- *
- *  Created on: Sep 29, 2018
- *      Author: ediapab
- */
-
 #include "BrainLord.h"
 #include <iostream>
 
 BrainLord::BrainLord() {
-	// TODO Auto-generated constructor stub
 
 }
 
 BrainLord::~BrainLord() {
-	// TODO Auto-generated destructor stub
 }
 
 void BrainLord::play() {
@@ -32,6 +23,6 @@ void BrainLord::play() {
 }
 
 int main() {
-	std::cout << "!!!Hello World!!!" << std::endl; // prints !!!Hello World!!!
+	BrainLord().play();
 	return 0;
 }

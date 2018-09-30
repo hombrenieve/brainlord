@@ -1,22 +1,21 @@
-/*
- * Player.cpp
- *
- *  Created on: Sep 29, 2018
- *      Author: ediapab
- */
-
 #include "Player.h"
+#include <iostream>
 
 Player::Player() {
-	// TODO Auto-generated constructor stub
-
+	std::cout << "Wellcome to BrainLord, a simple MasterMind clone" << std::endl;
 }
 
 Player::~Player() {
-	// TODO Auto-generated destructor stub
+	std::cout << "Bye, thanks for playing" << std::endl;
 }
 
 Pattern Player::guess() {
+	std::cout << "Please, make your guess (just type the initial of your colors separated by blank):" <<std::endl;
+	std::cout << "Valid colors are: ";
+	for(const auto& color: Pattern::validColors) {
+		std::cout << color << " ";
+	}
+	std::cout << std::endl;
 	return Pattern();
 }
 

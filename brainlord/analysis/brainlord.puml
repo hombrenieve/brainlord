@@ -14,7 +14,7 @@ class Player {
 } 
 
 class Pattern { 
-	validChars
+	validColors
 	generate() 
 	FeedBack check(Pattern) 
 	show() 

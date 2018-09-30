@@ -1,10 +1,3 @@
-/*
- * BrainLord.h
- *
- *  Created on: Sep 29, 2018
- *      Author: ediapab
- */
-
 #ifndef BRAINLORD_H_
 #define BRAINLORD_H_
 #include "Pattern.h"
@@ -21,4 +14,4 @@ private:
 	Player player;
 };
 
-#endif /* BRAINLORD_H_ */
+#endif

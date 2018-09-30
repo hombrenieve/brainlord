@@ -1,23 +1,16 @@
-/*
- * Pattern.cpp
- *
- *  Created on: Sep 29, 2018
- *      Author: ediapab
- */
-
 #include "Pattern.h"
 #include <random>
 #include <algorithm>
 
-const char Pattern::validChars[]  = { 'R', 'G', 'B', 'W', 'Y', 'P' };
+const std::vector<std::string> Pattern::validColors  = { "RED", "GREEN", "BLUE", "WHITE", "YELLOW", "PINK" };
 
 Pattern::Pattern() {
 	std::random_device rd;
 	std::mt19937 mt(rd());
-	std::uniform_int_distribution<int> dist(0, sizeof(validChars)-1);
+	std::uniform_int_distribution<int> dist(0, validColors.size()-1);
 
 	for(int i = 0; i < SIZE; i++) {
-		pattern.push_back(validChars[dist(mt)]);
+		pattern.push_back(dist(mt));
 	}
 }
 
@@ -34,17 +27,29 @@ Pattern::Pattern(const char* pattern) {
 
 }
 
-FeedBack Pattern::check(Pattern guess) {
-	return FeedBack();
+Pattern::~Pattern() {
 }
 
-Pattern::~Pattern() {
-	// TODO Auto-generated destructor stub
+FeedBack Pattern::check(Pattern guess) {
+	//TODO check preconditions
+	FeedBack feedBack(SIZE);
+	for(int i = 0; i < pattern.size(); i++) {
+		if(pattern[i] == guess.pattern[i]) {
+			feedBack.increaseRightlyPositionedCounter();
+		} else {
+			if(std::find(pattern.begin(), pattern.end(), guess.pattern[i]) != pattern.end()) {
+				feedBack.increaseRightlyColoredCounter();
+			}
+		}
+	}
+	return feedBack;
 }
+
+
 
 bool Pattern::isValid(char character) {
-	for(int i=0; i < sizeof(validChars); i++) {
-		if(validChars[i] == character) {
+	for(auto& color: validColors) {
+		if(color[0] == character) {
 			return true;
 		}
 	}
