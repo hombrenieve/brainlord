@@ -3,30 +3,45 @@
 class BrainLord { 
 	NUM_ROUNDS
 	play()
-	FeedBack checkGuess(Pattern) 
 } 
 
 class Player {
+	rounds
 	Pattern guess() 
-	giveFeedBack(FeedBack) 
+	Pattern readPattern()
+	giveFeedBack(FeedBack)
+	round(newRound)
 	win() 
 	lose() 
 } 
 
 class Pattern { 
 	validColors
-	generate() 
-	FeedBack check(Pattern) 
-	show() 
+	generate()
+	Row getRow()
+	bool isValid(character)
 } 
 
+class ColorSet {
+}
+
 class FeedBack { 
+	check(Row guess, Row secret)
 	bool isVictory() 
-	show() 
+	getWhites()
+	getBlacks()
 } 
 
 class Row {
 	LENGTH
+	int countElements(Color)
+	Color getCell(i)
+	void setCell(i, Color)
+}
+
+class Color {
+	Color charToColor(character)
+	char colorToChar(Color)
 }
 
 BrainLord *-- Player 
@@ -36,8 +51,14 @@ BrainLord ..> FeedBack
 Player ..> Pattern 
 Player ..> FeedBack
 Player ..> Row
+Player ..> ColorSet
 
+Pattern *-- ColorSet
 Pattern *-- Row
 FeedBack *-- Row
+
+FeedBack ..> Color
+
+Row o-- Color
 
 @enduml
