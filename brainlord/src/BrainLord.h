@@ -4,7 +4,7 @@
 #include "Player.h"
 
 class BrainLord {
-	static const int NUM_ROUNDS = 10;
+	static const int NUM_ROUNDS = 9;
 public:
 	BrainLord();
 	virtual ~BrainLord();

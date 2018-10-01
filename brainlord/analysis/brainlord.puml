@@ -25,15 +25,19 @@ class FeedBack {
 	show() 
 } 
 
-
+class Row {
+	LENGTH
+}
 
 BrainLord *-- Player 
 BrainLord *-- Pattern 
 BrainLord ..> FeedBack 
 
 Player ..> Pattern 
-Player ..> FeedBack 
+Player ..> FeedBack
+Player ..> Row
 
-Pattern ..> FeedBack
+Pattern *-- Row
+FeedBack *-- Row
 
 @enduml

@@ -1,32 +1,23 @@
 #ifndef FEEDBACK_H_
 #define FEEDBACK_H_
+#include "Row.h"
 
 class FeedBack {
 public:
-	FeedBack(int patternSize);
+	FeedBack(const Row& guess, const Row& secretKey);
 	virtual ~FeedBack();
 	bool isVictory();
 
-	int getRightlyColoredCounter() const {
-		return rightlyColoredCounter;
-	}
+	int getRightlyColoredCounter() const;
 
-	void increaseRightlyColoredCounter() {
-		this->rightlyColoredCounter++;
-	}
-
-	int getRightlyPositionedCounter() const {
-		return rightlyPositionedCounter;
-	}
-
-	void increaseRightlyPositionedCounter() {
-		this->rightlyPositionedCounter++;
-	}
+	int getRightlyPositionedCounter() const;
 
 private:
-	int size;
-	int rightlyPositionedCounter;
-	int rightlyColoredCounter;
+	static const Row::color rightPositionedColor = 'b';
+	static const Row::color rightColoredColor = 'w';
+	static const Row::color emptyColor = ' ';
+	Row feedBackRow;
+
 };
 
 #endif

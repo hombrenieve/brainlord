@@ -1,20 +1,27 @@
 #ifndef PATTERN_H_
 #define PATTERN_H_
-#include "FeedBack.h"
+#include "Row.h"
 #include <vector>
+
+using ColorSet = std::vector<std::string>;
+
+class Pattern;
+
+std::ostream& operator<< (std::ostream &out, Pattern const& pattern);
 
 class Pattern {
 public:
-	static const std::vector<std::string> validColors;
-	static const int SIZE = 4;
+	friend std::ostream& operator<< (std::ostream &out, Pattern const& pattern);
+
+	static const ColorSet validColors;
+	static bool isValid(char character);
 	Pattern();
-	Pattern(const std::vector<int> pattern);
-	Pattern(const char* pattern);
+	Pattern(const Row& pattern);
+	operator Row();
 	virtual ~Pattern();
-	FeedBack check(Pattern guess);
 private:
-	std::vector<int> pattern;
-	bool isValid(char character);
+	Row patternRow;
+
 };
 
-#endif /* PATTERN_H_ */
+#endif

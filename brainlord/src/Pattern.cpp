@@ -1,6 +1,7 @@
 #include "Pattern.h"
 #include <random>
 #include <algorithm>
+#include <iostream>
 
 const std::vector<std::string> Pattern::validColors  = { "RED", "GREEN", "BLUE", "WHITE", "YELLOW", "PINK" };
 
@@ -9,43 +10,21 @@ Pattern::Pattern() {
 	std::mt19937 mt(rd());
 	std::uniform_int_distribution<int> dist(0, validColors.size()-1);
 
-	for(int i = 0; i < SIZE; i++) {
-		pattern.push_back(dist(mt));
+	for(int i = 0; i < Row::LENGTH; i++) {
+		patternRow[i] = validColors[dist(mt)][0];
 	}
 }
 
-Pattern::Pattern(const std::vector<int> pattern) :
-	pattern(pattern) {
-	//TODO: check preconditions
-}
-
-Pattern::Pattern(const char* pattern) {
-	//TODO: check preconditions
-	for(int i = 0; i < SIZE; i++) {
-		this->pattern.push_back(pattern[i]);
-	}
-
+Pattern::Pattern(const Row& pattern) :
+	patternRow(pattern) {
 }
 
 Pattern::~Pattern() {
 }
 
-FeedBack Pattern::check(Pattern guess) {
-	//TODO check preconditions
-	FeedBack feedBack(SIZE);
-	for(int i = 0; i < pattern.size(); i++) {
-		if(pattern[i] == guess.pattern[i]) {
-			feedBack.increaseRightlyPositionedCounter();
-		} else {
-			if(std::find(pattern.begin(), pattern.end(), guess.pattern[i]) != pattern.end()) {
-				feedBack.increaseRightlyColoredCounter();
-			}
-		}
-	}
-	return feedBack;
+Pattern::operator Row() {
+	return patternRow;
 }
-
-
 
 bool Pattern::isValid(char character) {
 	for(auto& color: validColors) {
@@ -56,5 +35,18 @@ bool Pattern::isValid(char character) {
 	return false;
 }
 
+std::ostream& operator <<(std::ostream& out, const Pattern& pattern) {
+	out << "(";
+	for(int i = 0; i < Row::LENGTH; i++) {
 
-
+		out << " ";
+		for(auto color: Pattern::validColors) {
+			if(color[0] == pattern.patternRow[i]) {
+				out << color;
+				break;
+			}
+		}
+	}
+	out << " )";
+	return out;
+}
