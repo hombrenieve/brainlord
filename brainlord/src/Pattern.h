@@ -2,8 +2,7 @@
 #define PATTERN_H_
 #include "Row.h"
 #include <vector>
-
-using ColorSet = std::vector<std::string>;
+#include "ColorSet.h"
 
 class Pattern;
 
@@ -11,16 +10,17 @@ std::ostream& operator<< (std::ostream &out, Pattern const& pattern);
 
 class Pattern {
 public:
+	using row=std::vector<Color>;
 	friend std::ostream& operator<< (std::ostream &out, Pattern const& pattern);
 
 	static const ColorSet validColors;
-	static bool isValid(char character);
+	static const int LENGTH = 4;
+	static bool isValid(const Color& color);
 	Pattern();
-	Pattern(const Row& pattern);
-	operator Row();
+	Pattern(const row& pattern);
 	virtual ~Pattern();
 private:
-	Row patternRow;
+	row pattern;
 
 };
 
