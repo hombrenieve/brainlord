@@ -7,13 +7,16 @@
 class ColorSet {
 public:
 	const int NUM_COLORS;
+	using colors=std::vector<Color>;
 	ColorSet();
 	virtual ~ColorSet();
-	Color getRandom();
-	bool isValid(const Color& color);
+	Color getRandom() const;
+	bool isValid(const Color& color) const;
+	const colors& getPalette() const;
+
 
 private:
-	const std::vector<Color> palette;
+	const colors palette;
 };
 
 #endif

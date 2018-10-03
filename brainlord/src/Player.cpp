@@ -15,9 +15,9 @@ Player::~Player() {
 
 Pattern Player::guess() {
 	std::cout << "Please, make your guess (just type the "
-			<< Row::LENGTH << " initials of your colors separated by blank):"
+			<< Pattern::LENGTH << " initials of your colors separated by blank):"
 			<< std::endl << "Valid colors are: ";
-	for(const auto& color: colors) {
+	for(const auto& color: colors.getPalette()) {
 		std::cout << color << " ";
 	}
 	std::cout << std::endl;
@@ -44,17 +44,17 @@ void Player::round(int round) {
 Pattern Player::readPattern() {
 	bool ok = false;
 	std::string line;
-	Row pattern;
+	Pattern::row patternRow;
 	int i = 0;
 	while(not ok and std::getline(std::cin, line)) {
-		if(i > Row::LENGTH) {
+		if(i > Pattern::LENGTH) {
 			std::cerr << "More elements than expected!" << std::endl;
 			break;
 		}
 		for(char character: line) {
 			if(character != ' ' and character != '\n') {
-				if(Pattern::isValid(toupper(character))) {
-					pattern[i] = toupper(character);
+				if(colors.isValid(toupper(character))) {
+					patternRow[i] = toupper(character);
 					i++;
 				} else {
 					std::cerr << "Incorrect character: " << character << std::endl;
@@ -65,5 +65,5 @@ Pattern Player::readPattern() {
 		ok = true;
 	}
 	//TODO check ok
-	return pattern;
+	return patternRow;
 }

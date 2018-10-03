@@ -6,7 +6,7 @@ class Color {
 public:
 	Color(const std::string& name);
 	virtual ~Color();
-	std::string getName();
+	std::string getName() const;
 private:
 	std::string name;
 

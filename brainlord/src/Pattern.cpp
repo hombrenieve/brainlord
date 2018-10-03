@@ -24,9 +24,13 @@ bool Pattern::isValid(const Color& color) {
 
 std::ostream& operator <<(std::ostream& out, const Pattern& pattern) {
 	out << "(";
-	for(int i = 0; i < LENGTH; i++) {
+	for(int i = 0; i < Pattern::LENGTH; i++) {
 		out << " " << pattern.pattern[i].getName();
 	}
 	out << " )";
 	return out;
+}
+
+const Color& Pattern::at(int i) const {
+	return pattern[i];
 }

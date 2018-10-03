@@ -9,7 +9,7 @@ Color::Color(const std::string& name) :
 Color::~Color() {
 }
 
-std::string Color::getName() {
+std::string Color::getName() const {
 	return name;
 }
 
