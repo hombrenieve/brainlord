@@ -1,47 +1,45 @@
 @startuml
 
 class BrainLord { 
-	NUM_ROUNDS
-	play()
+ NUM_ROUNDS
+ play()
 } 
 
 class Player {
-	rounds
-	Pattern guess() 
-	Pattern readPattern()
-	giveFeedBack(FeedBack)
-	round(newRound)
-	win() 
-	lose() 
+ Pattern guess()
+ giveFeedBack(FeedBack)
+ round(newRound)
+ win() 
+ lose() 
 } 
 
 class Pattern { 
-	validColors
-	generate()
-	Row getRow()
-	bool isValid(character)
+ LENGTH
+ generate()
+ fromRow(row)
+ getElement(i)
 } 
 
 class ColorSet {
-}
-
-class FeedBack { 
-	check(Row guess, Row secret)
-	bool isVictory() 
-	getWhites()
-	getBlacks()
-} 
-
-class Row {
-	LENGTH
-	int countElements(Color)
-	Color getCell(i)
-	void setCell(i, Color)
+ Color getRandom()
+ bool isValid()
 }
 
 class Color {
-	Color charToColor(character)
-	char colorToChar(Color)
+ getName()
+}
+
+class FeedBack { 
+ check(Pattern guess, Pattern secret)
+ bool isVictory() 
+ getWhites()
+ getBlacks()
+}
+
+class Marker {
+ WHITE
+ BLACK
+ EMPTY 
 }
 
 BrainLord *-- Player 
@@ -50,15 +48,14 @@ BrainLord ..> FeedBack
 
 Player ..> Pattern 
 Player ..> FeedBack
-Player ..> Row
-Player ..> ColorSet
+Player --> ColorSet
 
 Pattern *-- ColorSet
-Pattern *-- Row
-FeedBack *-- Row
+Pattern o-- Color
 
-FeedBack ..> Color
+ColorSet o-- Color
 
-Row o-- Color
+FeedBack ..> Pattern
+FeedBack *-- Marker
 
 @enduml

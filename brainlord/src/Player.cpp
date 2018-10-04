@@ -1,7 +1,5 @@
 #include "Player.h"
-#include "Row.h"
 #include <iostream>
-#include <cctype>
 
 Player::Player(int rounds, const ColorSet& colors) :
 	rounds(rounds),
@@ -18,7 +16,7 @@ Pattern Player::guess() {
 			<< Pattern::LENGTH << " initials of your colors separated by blank):"
 			<< std::endl << "Valid colors are: ";
 	for(const auto& color: colors.getPalette()) {
-		std::cout << color << " ";
+		std::cout << color.getName() << " ";
 	}
 	std::cout << std::endl;
 	return readPattern();
@@ -43,24 +41,21 @@ void Player::round(int round) {
 
 Pattern Player::readPattern() {
 	bool ok = false;
-	std::string line;
+	std::string colorName;
 	Pattern::row patternRow;
 	int i = 0;
-	while(not ok and std::getline(std::cin, line)) {
+	while(not ok) {
+		std::cin >> colorName;
 		if(i > Pattern::LENGTH) {
 			std::cerr << "More elements than expected!" << std::endl;
 			break;
 		}
-		for(char character: line) {
-			if(character != ' ' and character != '\n') {
-				if(colors.isValid(toupper(character))) {
-					patternRow[i] = toupper(character);
-					i++;
-				} else {
-					std::cerr << "Incorrect character: " << character << std::endl;
-					continue;
-				}
-			}
+		if(colors.isValid(colorName)) {
+			patternRow[i] = colorName;
+			i++;
+		} else {
+			std::cerr << "Incorrect color" << std::endl;
+			continue;
 		}
 		ok = true;
 	}

@@ -9,9 +9,6 @@ public:
 	BrainLord();
 	virtual ~BrainLord();
 	void play();
-private:
-	Pattern secretCode;
-	Player player;
 };
 
 #endif

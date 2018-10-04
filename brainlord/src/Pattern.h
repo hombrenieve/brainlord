@@ -1,6 +1,6 @@
 #ifndef PATTERN_H_
 #define PATTERN_H_
-#include <array>
+#include <vector>
 #include "ColorSet.h"
 
 class Pattern;
@@ -13,12 +13,11 @@ public:
 
 	static const ColorSet validColors;
 	static const int LENGTH = 4;
-	using row=std::array<Color, LENGTH>;
+	using row=std::vector<Color>;
 
-	static bool isValid(const Color& color);
 	Pattern();
 	Pattern(const row& pattern);
-	const Color& at(int i) const;
+	const Color& operator[](int i) const;
 	virtual ~Pattern();
 private:
 	row pattern;

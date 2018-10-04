@@ -13,6 +13,10 @@ std::string Color::getName() const {
 	return name;
 }
 
+bool Color::operator ==(const Color& other) const {
+	return name == other.name;
+}
+
 std::string Color::toUpper(const std::string& original) {
 	std::stringstream sstr;
 	sstr << std::uppercase << original;

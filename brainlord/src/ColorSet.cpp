@@ -3,8 +3,8 @@
 #include <algorithm>
 
 ColorSet::ColorSet() :
-	palette{ "red", "yellow", "pink", "blue", "green", "orange" },
-	NUM_COLORS(palette.size()) {
+	palette{ {"red"}, {"yellow"}, {"pink"}, {"blue"}, {"green"}, {"orange"} }
+{
 }
 
 ColorSet::~ColorSet() {
@@ -15,7 +15,7 @@ Color ColorSet::getRandom() const {
 	std::mt19937 mt(rd());
 	std::uniform_int_distribution<int> dist(0, palette.size()-1);
 
-	return palette[dist(mt)][0];
+	return palette[dist(mt)];
 }
 
 bool ColorSet::isValid(const Color& color) const {

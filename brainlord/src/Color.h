@@ -7,6 +7,7 @@ public:
 	Color(const std::string& name);
 	virtual ~Color();
 	std::string getName() const;
+	bool operator==(const Color& other) const;
 private:
 	std::string name;
 

@@ -18,10 +18,6 @@ Pattern::Pattern(const row& pattern) :
 Pattern::~Pattern() {
 }
 
-bool Pattern::isValid(const Color& color) {
-	return validColors.isValid(color);
-}
-
 std::ostream& operator <<(std::ostream& out, const Pattern& pattern) {
 	out << "(";
 	for(int i = 0; i < Pattern::LENGTH; i++) {
@@ -31,6 +27,6 @@ std::ostream& operator <<(std::ostream& out, const Pattern& pattern) {
 	return out;
 }
 
-const Color& Pattern::at(int i) const {
+const Color& Pattern::operator[](int i) const {
 	return pattern[i];
 }

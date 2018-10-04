@@ -6,7 +6,6 @@
 
 class ColorSet {
 public:
-	const int NUM_COLORS;
 	using colors=std::vector<Color>;
 	ColorSet();
 	virtual ~ColorSet();
@@ -16,7 +15,7 @@ public:
 
 
 private:
-	const colors palette;
+	colors palette;
 };
 
 #endif

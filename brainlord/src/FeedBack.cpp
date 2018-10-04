@@ -4,7 +4,7 @@
 FeedBack::FeedBack(const Pattern& guess, const Pattern& secretKey)
 {
 	for(int i = 0; i < Pattern::LENGTH; i++) {
-		if(guess.at(i) == secretKey.at(i)) {
+		if(guess[i] == secretKey[i]) {
 			feedBackRow[i] = Marker::BLACK;
 		} else {
 			feedBackRow[i] = Marker::EMPTY;
@@ -13,7 +13,7 @@ FeedBack::FeedBack(const Pattern& guess, const Pattern& secretKey)
 	for(int i = 0; i < Pattern::LENGTH; i++) {
 		if(feedBackRow[i] == Marker::EMPTY) {
 			for(int j = 0; j < Pattern::LENGTH; j++) {
-				if(guess.at(i) == secretKey.at(j) and feedBackRow[j] == Marker::EMPTY) {
+				if(guess[i] == secretKey[j] and feedBackRow[j] == Marker::EMPTY) {
 					feedBackRow[i] = Marker::WHITE;
 				}
 			}
