@@ -7,7 +7,7 @@ const ColorSet Pattern::validColors;
 
 Pattern::Pattern() {
 	for(int i = 0; i < LENGTH; i++) {
-		pattern[i] = validColors.getRandom();
+		pattern.push_back(validColors.getRandom());
 	}
 }
 

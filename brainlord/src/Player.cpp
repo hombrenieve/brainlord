@@ -4,7 +4,7 @@
 Player::Player(int rounds, const ColorSet& colors) :
 	rounds(rounds),
 	colors(colors) {
-	std::cout << "Wellcome to BrainLord, a simple MasterMind clone" << std::endl;
+	std::cout << "Welcome to BrainLord, a simple MasterMind clone" << std::endl;
 }
 
 Player::~Player() {
@@ -12,8 +12,7 @@ Player::~Player() {
 }
 
 Pattern Player::guess() {
-	std::cout << "Please, make your guess (just type the "
-			<< Pattern::LENGTH << " initials of your colors separated by blank):"
+	std::cout << "Please, make your guess:"
 			<< std::endl << "Valid colors are: ";
 	for(const auto& color: colors.getPalette()) {
 		std::cout << color.getName() << " ";
@@ -40,25 +39,23 @@ void Player::round(int round) {
 }
 
 Pattern Player::readPattern() {
-	bool ok = false;
 	std::string colorName;
 	Pattern::row patternRow;
 	int i = 0;
-	while(not ok) {
+	while(i < Pattern::LENGTH) {
 		std::cin >> colorName;
-		if(i > Pattern::LENGTH) {
-			std::cerr << "More elements than expected!" << std::endl;
-			break;
-		}
 		if(colors.isValid(colorName)) {
-			patternRow[i] = colorName;
+			patternRow.emplace_back(colorName);
 			i++;
+			if(i > 0) {
+				std::cout << Pattern::LENGTH-i << " more to go!" << std::endl;
+			}
 		} else {
 			std::cerr << "Incorrect color" << std::endl;
 			continue;
 		}
-		ok = true;
 	}
-	//TODO check ok
-	return patternRow;
+	Pattern pattern(patternRow);
+	std::cout << "You are trying with: " << pattern << std::endl;
+	return pattern;
 }

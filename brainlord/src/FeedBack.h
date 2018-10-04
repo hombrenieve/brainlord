@@ -16,9 +16,9 @@ public:
 	virtual ~FeedBack();
 	bool isVictory();
 
-	int getRightlyColoredCounter() const;
+	unsigned int getRightlyColoredCounter() const;
 
-	int getRightlyPositionedCounter() const;
+	unsigned int getRightlyPositionedCounter() const;
 
 private:
 	markerRow feedBackRow;

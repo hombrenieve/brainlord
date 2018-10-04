@@ -15,7 +15,8 @@ Color ColorSet::getRandom() const {
 	std::mt19937 mt(rd());
 	std::uniform_int_distribution<int> dist(0, palette.size()-1);
 
-	return palette[dist(mt)];
+	Color c = palette[dist(mt)];
+	return c;
 }
 
 bool ColorSet::isValid(const Color& color) const {

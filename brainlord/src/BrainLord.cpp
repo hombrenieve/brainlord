@@ -1,7 +1,8 @@
 #include "BrainLord.h"
 #include <iostream>
 
-BrainLord::BrainLord() {
+BrainLord::BrainLord() :
+	player(NUM_ROUNDS, Pattern::validColors) {
 
 }
 
@@ -9,8 +10,6 @@ BrainLord::~BrainLord() {
 }
 
 void BrainLord::play() {
-	Pattern secretCode;
-	Player player(NUM_ROUNDS, Pattern::validColors);
 //Initial debug
 std::cout << "Secret Code: " << secretCode << std::endl;
 /////

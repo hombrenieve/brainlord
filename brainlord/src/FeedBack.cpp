@@ -28,12 +28,12 @@ bool FeedBack::isVictory() {
 	return getRightlyPositionedCounter() == feedBackRow.size();
 }
 
-int FeedBack::getRightlyColoredCounter() const
+unsigned int FeedBack::getRightlyColoredCounter() const
 {
 	return std::count(feedBackRow.begin(), feedBackRow.end(), Marker::WHITE);
 }
 
-int FeedBack::getRightlyPositionedCounter() const
+unsigned int FeedBack::getRightlyPositionedCounter() const
 {
 	return std::count(feedBackRow.begin(), feedBackRow.end(), Marker::BLACK);
 }
