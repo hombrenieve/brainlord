@@ -2,6 +2,13 @@
 #include <iostream>
 #include <sstream>
 
+Color Color::RED("red");
+Color Color::BLUE("blue");
+Color Color::YELLOW("yellow");
+Color Color::GREEN("green");
+Color Color::PINK("pink");
+Color Color::ORANGE("orange");
+
 Color::Color(const std::string& name) :
 	name(toUpper(name)) {
 }
@@ -13,12 +20,22 @@ std::string Color::getName() const {
 	return name;
 }
 
-bool Color::operator ==(const Color& other) const {
-	return name == other.name;
-}
-
 std::string Color::toUpper(const std::string& original) {
 	std::stringstream sstr;
 	sstr << std::uppercase << original;
 	return sstr.str();
+}
+
+std::array<const Color&, Color::NUM_COLORS> Color::values() {
+    return { RED, BLUE, GREEN, PINK, YELLOW, ORANGE };
+}
+
+const Color* Color::findColor(std::string substr) {
+    std::string upperSubstr = Color::toUpper(substr);
+    for(const auto& c: Color::values()) {
+        if(c.find(upperSubstr) != std::string::npos) {
+            return &c;
+        }
+    }
+    return nullptr;
 }
