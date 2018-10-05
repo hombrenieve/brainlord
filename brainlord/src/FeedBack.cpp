@@ -15,6 +15,7 @@ FeedBack::FeedBack(const Pattern& guess, const Pattern& secretKey)
 			for(int j = 0; j < Pattern::LENGTH; j++) {
 				if(guess[i] == secretKey[j] and feedBackRow[j] == Marker::EMPTY) {
 					feedBackRow[i] = Marker::WHITE;
+                    break;
 				}
 			}
 		}

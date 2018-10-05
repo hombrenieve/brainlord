@@ -11,7 +11,7 @@ BrainLord::~BrainLord() {
 
 void BrainLord::play() {
 //Initial debug
-std::cout << "Secret Code: " << secretCode << std::endl;
+//std::cout << "Secret Code: " << secretCode << std::endl;
 /////
 	bool victory = false;
 	for(int round = 1; round < NUM_ROUNDS and not victory; round++) {
@@ -26,6 +26,7 @@ std::cout << "Secret Code: " << secretCode << std::endl;
 	} else {
 		player.lose();
 	}
+std::cout << "Secret Code: " << secretCode << std::endl;
 }
 
 int main() {
