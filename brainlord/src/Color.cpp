@@ -39,3 +39,21 @@ const Color* Color::findColor(std::string substr) {
     }
     return nullptr;
 }
+
+void Color::print() const {
+	std::cout << this->getName();
+}
+
+
+Color read() {
+	std::string colorName;
+	Color* color = nullptr;
+	do {
+		std::cin >> colorName;
+		color = Color::findColor(colorName);
+		if(not color) {
+			std::cerr << "Incorrect color" << std::endl;
+		}
+	}	while(not color);
+	return *color;
+}

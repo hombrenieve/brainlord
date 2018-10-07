@@ -1,17 +1,12 @@
-/*
- * ProposedCombination.h
- *
- *  Created on: Oct 5, 2018
- *      Author: ediapab
- */
-
 #ifndef PROPOSEDCOMBINATION_H_
 #define PROPOSEDCOMBINATION_H_
+#include "Combination.h"
 
-class ProposedCombination {
+class ProposedCombination : public Combination {
 public:
 	ProposedCombination();
 	virtual ~ProposedCombination();
+	void read();
 };
 
-#endif /* PROPOSEDCOMBINATION_H_ */
+#endif
