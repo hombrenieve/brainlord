@@ -1,0 +1,16 @@
+@startuml
+
+class MasterMind {
+	play()
+}
+
+SecretCombination "1" --* MasterMind
+ProposedCombination "0..N" --* MasterMind
+ProposedCombination ..> SecretCombination
+Combination <|-- SecretCombination
+Combination <|-- ProposedCombination
+Combination *-- Color
+Result --* ProposedCombination
+Result *-- Success
+
+@enduml
