@@ -16,7 +16,7 @@ public:
 	virtual ~Color();
 	std::string getName() const;
 
-    static std::array<const Color&, NUM_COLORS> values();
+    static std::array<Color, NUM_COLORS> values();
     static const Color* findColor(std::string substr);
 private:
 	std::string name;
