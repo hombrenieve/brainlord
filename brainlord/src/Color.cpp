@@ -30,9 +30,9 @@ std::array<Color, Color::NUM_COLORS> Color::values() {
     return { RED, BLUE, GREEN, PINK, YELLOW, ORANGE };
 }
 
-const Color* Color::findColor(std::string substr) {
+Color* Color::findColor(std::string substr) {
     std::string upperSubstr = Color::toUpper(substr);
-    for(const auto& c: Color::values()) {
+    for(auto& c: Color::values()) {
         if(c.getName().find(upperSubstr) != std::string::npos) {
             return &c;
         }

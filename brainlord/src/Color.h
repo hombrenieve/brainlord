@@ -18,7 +18,7 @@ public:
 	void print() const;
 
 	static std::array<Color, NUM_COLORS> values();
-	static const Color* findColor(std::string substr);
+	static Color* findColor(std::string substr);
 	static Color read();
 private:
 	std::string name;

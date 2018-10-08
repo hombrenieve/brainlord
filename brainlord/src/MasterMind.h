@@ -1,12 +1,7 @@
-/*
- * MasterMind.h
- *
- *  Created on: Oct 5, 2018
- *      Author: ediapab
- */
-
 #ifndef MASTERMIND_H_
 #define MASTERMIND_H_
+#include "ProposedCombination.h"
+#include "SecretCombination.h"
 #include <vector>
 
 class MasterMind {
@@ -16,7 +11,7 @@ public:
 	void play();
 
 private:
-	void print();
+	void print() const;
 	SecretCombination secretCombination;
 	std::vector<ProposedCombination> proposedCombinations;
 

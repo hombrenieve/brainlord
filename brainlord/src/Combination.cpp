@@ -1,20 +1,12 @@
-/*
- * Combination.cpp
- *
- *  Created on: Oct 7, 2018
- *      Author: ediapab
- */
-
 #include "Combination.h"
 #include <iostream>
 
-Combination::Combination() {
-	// TODO Auto-generated constructor stub
+Combination::Combination() :
+	combination{Color::RED, Color::RED, Color::RED, Color::RED } {
 
 }
 
 Combination::~Combination() {
-	// TODO Auto-generated destructor stub
 }
 
 void Combination::print() const {
