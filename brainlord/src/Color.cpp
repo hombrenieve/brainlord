@@ -20,6 +20,10 @@ std::string Color::getName() const {
 	return name;
 }
 
+bool Color::operator ==(const Color& color) const {
+	return this->getName() == color.getName();
+}
+
 std::string Color::toUpper(const std::string& original) {
 	std::stringstream sstr;
 	sstr << std::uppercase << original;
@@ -45,7 +49,7 @@ void Color::print() const {
 }
 
 
-Color read() {
+Color Color::read() {
 	std::string colorName;
 	Color* color = nullptr;
 	do {

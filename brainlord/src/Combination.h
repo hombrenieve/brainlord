@@ -1,10 +1,3 @@
-/*
- * Combination.h
- *
- *  Created on: Oct 7, 2018
- *      Author: ediapab
- */
-
 #ifndef COMBINATION_H_
 #define COMBINATION_H_
 #include "Color.h"
@@ -19,15 +12,14 @@ public:
 	virtual ~Combination();
 
 	void print() const;
+	storage& getCombination();
+	const storage& getCombination() const;
 
 
 private:
 	storage combination;
 
-protected:
-	storage& getCombination();
-	const storage& getCombination() const;
 
 };
 
-#endif /* COMBINATION_H_ */
+#endif
