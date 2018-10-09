@@ -2,7 +2,7 @@
 #include <iostream>
 
 Combination::Combination() :
-	combination{Color::RED, Color::RED, Color::RED, Color::RED } {
+	combination{Color::values()[0], Color::values()[0], Color::values()[0], Color::values()[0] } {
 
 }
 

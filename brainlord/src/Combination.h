@@ -12,9 +12,11 @@ public:
 	virtual ~Combination();
 
 	void print() const;
-	storage& getCombination();
+
 	const storage& getCombination() const;
 
+protected:
+	storage& getCombination();
 
 private:
 	storage combination;

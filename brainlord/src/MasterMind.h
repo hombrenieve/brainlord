@@ -16,6 +16,7 @@ private:
 	std::vector<ProposedCombination> proposedCombinations;
 
 	static const int MAX_PROPOSED_COMBINATION = 10;
+	int tries;
 
 };
 

@@ -1,7 +1,7 @@
 #include "MasterMind.h"
 #include <iostream>
 
-MasterMind::MasterMind() {
+MasterMind::MasterMind() : tries(0) {
 
 }
 
@@ -11,12 +11,13 @@ MasterMind::~MasterMind() {
 void MasterMind::play() {
 	std::cout << "Welcome to MasterMind" << std::endl;
 	do {
+		this->tries++;
 		this->print();
 		proposedCombinations.emplace_back();
 		proposedCombinations.back().read();
 		proposedCombinations.back().calculateResult(secretCombination);
 	} while (not proposedCombinations.back().isWinner()
-			and proposedCombinations.size() < MasterMind::MAX_PROPOSED_COMBINATION);
+			and this->tries < MasterMind::MAX_PROPOSED_COMBINATION);
 	if(proposedCombinations.back().isWinner()) {
 		std::cout << "You are the winner!!!" << std::endl;
 	} else {
@@ -25,9 +26,11 @@ void MasterMind::play() {
 }
 
 void MasterMind::print() const {
-	std::cout << "Starting round " << proposedCombinations.size()-1 <<
+	std::cout << "Starting round " << this->tries <<
 			" out of " << MasterMind::MAX_PROPOSED_COMBINATION << std::endl;
+	std::cout << "Secret: ";
 	secretCombination.print();
+	std::cout << std::endl;
 	for (const auto& combination: proposedCombinations) {
 		combination.print();
 		std::cout << std::endl;

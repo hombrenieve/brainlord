@@ -2,12 +2,14 @@
 #include <iostream>
 #include <sstream>
 
-Color Color::RED("red");
-Color Color::BLUE("blue");
-Color Color::YELLOW("yellow");
-Color Color::GREEN("green");
-Color Color::PINK("pink");
-Color Color::ORANGE("orange");
+const std::array<Color, Color::NUM_COLORS> Color::palette {
+	Color{"red"},
+	Color{"blue"},
+	Color{"yellow"},
+	Color{"green"},
+	Color{"pink"},
+	Color{"orange"}
+};
 
 Color::Color(const std::string& name) :
 	name(toUpper(name)) {
@@ -30,13 +32,13 @@ std::string Color::toUpper(const std::string& original) {
 	return sstr.str();
 }
 
-std::array<Color, Color::NUM_COLORS> Color::values() {
-    return { RED, BLUE, GREEN, PINK, YELLOW, ORANGE };
+const std::array<Color, Color::NUM_COLORS>& Color::values() {
+    return palette;
 }
 
-Color* Color::findColor(std::string substr) {
+const Color* Color::findColor(std::string substr) {
     std::string upperSubstr = Color::toUpper(substr);
-    for(auto& c: Color::values()) {
+    for(auto& c: Color::palette) {
         if(c.getName().find(upperSubstr) != std::string::npos) {
             return &c;
         }
@@ -49,9 +51,9 @@ void Color::print() const {
 }
 
 
-Color Color::read() {
+const Color& Color::read() {
 	std::string colorName;
-	Color* color = nullptr;
+	const Color* color = nullptr;
 	do {
 		std::cin >> colorName;
 		color = Color::findColor(colorName);
