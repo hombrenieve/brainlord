@@ -1,5 +1,6 @@
 #include "MasterMind.h"
 #include <iostream>
+#include "util/IO.h"
 
 MasterMind::MasterMind() : tries(0) {
 
@@ -31,10 +32,7 @@ void MasterMind::print() const {
 	std::cout << "Secret: ";
 	secretCombination.print();
 	std::cout << std::endl;
-	for (const auto& combination: proposedCombinations) {
-		combination.print();
-		std::cout << std::endl;
-	}
+	util::IO::show(proposedCombinations, "\n");
 }
 
 int main() {
