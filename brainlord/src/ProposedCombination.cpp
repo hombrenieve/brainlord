@@ -1,5 +1,6 @@
 #include "ProposedCombination.h"
 #include <iostream>
+#include <cassert>
 
 ProposedCombination::ProposedCombination() {
 }
@@ -20,6 +21,7 @@ void ProposedCombination::read() {
 }
 
 void ProposedCombination::calculateResult(const SecretCombination& secret) {
+	assert(result.empty());
 	for(int i = 0; i < Combination::COMBINATION_SIZE; i++) {
 		if(this->getCombination()[i] == secret.getCombination()[i]) {
 			result.push_back(Success::BLACK);

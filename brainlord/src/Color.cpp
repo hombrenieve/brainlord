@@ -1,6 +1,7 @@
 #include "Color.h"
 #include <iostream>
 #include <sstream>
+#include <cassert>
 
 const std::array<Color, Color::NUM_COLORS> Color::palette {
 	Color{"red"},
@@ -13,6 +14,7 @@ const std::array<Color, Color::NUM_COLORS> Color::palette {
 
 Color::Color(const std::string& name) :
 	name(toUpper(name)) {
+	assert(not name.empty());
 }
 
 Color::~Color() {
@@ -37,6 +39,7 @@ const std::array<Color, Color::NUM_COLORS>& Color::values() {
 }
 
 const Color* Color::findColor(std::string substr) {
+	assert(not substr.empty());
     std::string upperSubstr = Color::toUpper(substr);
     for(auto& c: Color::palette) {
         if(c.getName().find(upperSubstr) != std::string::npos) {
