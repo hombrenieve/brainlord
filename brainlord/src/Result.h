@@ -3,10 +3,11 @@
 #include "Success.h"
 #include <vector>
 
-class Result : public std::vector<Success> {
+using resultSuperClass=std::vector<Success>;
 
+class Result : public resultSuperClass {
 public:
-	Result();
+	Result(int size);
 	virtual ~Result();
 	bool isWinner() const;
 

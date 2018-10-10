@@ -1,8 +1,11 @@
 #include "Result.h"
 #include <algorithm>
 #include <iostream>
+#include <vector>
 
-Result::Result()
+#include "Success.h"
+
+Result::Result(int size) : resultSuperClass(size, Success::EMPTY)
 { }
 
 Result::~Result() {
