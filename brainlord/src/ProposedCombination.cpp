@@ -50,7 +50,6 @@ void ProposedCombination::calculateWhites(const Combination::storage& guess, con
 
 void ProposedCombination::calculateResult(const SecretCombination& secret) {
 	assert(result.size() == Combination::COMBINATION_SIZE);
-	Combination::storage guess = this->getCombination();
 	this->calculateBlacks(this->getCombination(), secret.getCombination());
 	this->calculateWhites(this->getCombination(), secret.getCombination());
 }
