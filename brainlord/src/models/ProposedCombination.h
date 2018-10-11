@@ -12,7 +12,7 @@ public:
 	void read();
 	void calculateResult(const SecretCombination& secret);
 	bool isWinner() const;
-	void print() const;
+	void write() const;
 
 private:
 	void calculateBlacks(const Combination::storage& guess, const Combination::storage& secret);

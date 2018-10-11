@@ -12,7 +12,7 @@ Combination::Combination() :
 Combination::~Combination() {
 }
 
-void Combination::print() const {
+void Combination::write() const {
 	util::IO::show(this->getCombination());
 }
 

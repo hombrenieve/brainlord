@@ -8,10 +8,11 @@ namespace util {
 		template<typename iterableClass>
 			void show(const iterableClass& iterable, const std::string& separator = " ") {
 				for(const auto& item: iterable) {
-						item.print();
+						item.write();
 						std::cout << separator;
 					}
 			}
+		void showRule(char character);
 	}
 }
 

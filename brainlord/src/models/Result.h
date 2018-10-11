@@ -16,7 +16,7 @@ public:
 
 	unsigned int getRightlyPositionedCounter() const;
 
-	void print() const;
+	void write() const;
 };
 }
 #endif

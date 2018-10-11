@@ -12,7 +12,7 @@ public:
 	Combination();
 	virtual ~Combination();
 
-	void print() const;
+	void write() const;
 
 	const storage& getCombination() const;
 

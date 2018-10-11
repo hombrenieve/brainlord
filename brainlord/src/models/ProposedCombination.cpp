@@ -61,8 +61,8 @@ bool ProposedCombination::isWinner() const {
 	return this->result.isWinner();
 }
 
-void ProposedCombination::print() const {
-	Combination::print();
+void ProposedCombination::write() const {
+	Combination::write();
 	std::cout << " | ";
-	result.print();
+	result.write();
 }

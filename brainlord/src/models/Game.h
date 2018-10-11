@@ -11,13 +11,19 @@ namespace models {
 class Game {
 public:
 	static const int MAX_PROPOSED_COMBINATION = 10;
+	using storage_combinations = std::vector<ProposedCombination>;
+
 	Game();
 	State getState() const;
 	void setState(State state);
+	const SecretCombination& getSecret() const;
+	const storage_combinations& getProposedCombinations() const;
+	void write() const;
+
 
 private:
 	SecretCombination secret;
-	std::array<ProposedCombination,MAX_PROPOSED_COMBINATION> proposedCombinations;
+	storage_combinations proposedCombinations;
 	State state;
 	int tries;
 

@@ -28,7 +28,7 @@ unsigned int Result::getRightlyPositionedCounter() const
 	return std::count(this->begin(), this->end(), Success::BLACK);
 }
 
-void Result::print() const {
+void Result::write() const {
 	std::cout << "Black: " << this->getRightlyPositionedCounter() << ", "
 			<< "White: " << this->getRightlyColoredCounter();
 }

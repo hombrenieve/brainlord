@@ -52,7 +52,7 @@ const Color* Color::findColor(char initial) {
 	return nullptr;
 }
 
-void Color::print() const {
+void Color::write() const {
 	std::cout << this->getName();
 }
 
@@ -62,7 +62,7 @@ const Color& Color::read() {
 	const Color* color = nullptr;
 	do {
 		std::cin >> colorName;
-		color = Color::findColor(colorName);
+		//color = Color::findColor(colorName);
 		if(not color) {
 			std::cerr << "Incorrect color" << std::endl;
 		}
