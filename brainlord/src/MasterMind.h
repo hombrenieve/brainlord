@@ -1,8 +1,8 @@
 #ifndef MASTERMIND_H_
 #define MASTERMIND_H_
-#include "ProposedCombination.h"
-#include "SecretCombination.h"
 #include <vector>
+#include "models/ProposedCombination.h"
+#include "models/SecretCombination.h"
 
 class MasterMind {
 public:
@@ -11,8 +11,8 @@ public:
 	void play();
 
 private:
-	SecretCombination secretCombination;
-	std::vector<ProposedCombination> proposedCombinations;
+	models::SecretCombination secretCombination;
+	std::vector<models::ProposedCombination> proposedCombinations;
 
 	static const int MAX_PROPOSED_COMBINATION = 10;
 	int tries;

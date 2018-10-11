@@ -4,13 +4,22 @@ class MasterMind {
 	play()
 }
 
-SecretCombination "1" --* MasterMind
-ProposedCombination "0..N" --* MasterMind
+SecretCombination "1" --* Game
+ProposedCombination "0..N" --* Game
+State --* Game
 ProposedCombination ..> SecretCombination
 Combination <|-- SecretCombination
 Combination <|-- ProposedCombination
 Combination *-- Color
 Result --* ProposedCombination
 Result *-- Success
+
+Controller <|-- StartController
+Controller <|-- GuessController
+Controller --> Game
+Logic *-- StartController
+Logic *-- GuessController
+
+MasterMind ..> Logic
 
 @enduml

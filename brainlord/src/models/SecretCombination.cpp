@@ -1,6 +1,10 @@
 #include "SecretCombination.h"
+
 #include <random>
+
 #include "Color.h"
+
+using namespace models;
 
 SecretCombination::SecretCombination() {
 	std::random_device rd;

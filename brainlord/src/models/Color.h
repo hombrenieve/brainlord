@@ -1,8 +1,9 @@
-#ifndef COLOR_H_
-#define COLOR_H_
+#ifndef MODELS_COLOR_H_
+#define MODELS_COLOR_H_
 #include <string>
 #include <array>
 
+namespace models {
 class Color {
 public:
 	static const int NUM_COLORS = 6;
@@ -22,5 +23,6 @@ private:
 
 	static std::string toUpper(const std::string& original);
 };
+}
 
 #endif

@@ -1,9 +1,12 @@
 #include "Result.h"
+
 #include <algorithm>
 #include <iostream>
 #include <vector>
 
 #include "Success.h"
+
+using namespace models;
 
 Result::Result(int size) : resultSuperClass(size, Success::EMPTY)
 { }

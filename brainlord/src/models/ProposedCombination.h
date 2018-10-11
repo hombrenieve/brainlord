@@ -1,9 +1,10 @@
-#ifndef PROPOSEDCOMBINATION_H_
-#define PROPOSEDCOMBINATION_H_
+#ifndef MODELS_PROPOSEDCOMBINATION_H_
+#define MODELS_PROPOSEDCOMBINATION_H_
 #include "Combination.h"
-#include "SecretCombination.h"
 #include "Result.h"
+#include "SecretCombination.h"
 
+namespace models {
 class ProposedCombination : public Combination {
 public:
 	ProposedCombination();
@@ -19,5 +20,6 @@ private:
 	int findMatch(const Color& current, const Combination::storage& secret);
 	Result result;
 };
+}
 
 #endif

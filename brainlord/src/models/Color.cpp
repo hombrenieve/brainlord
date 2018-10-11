@@ -1,7 +1,10 @@
 #include "Color.h"
+
 #include <iostream>
 #include <sstream>
 #include <cassert>
+
+using namespace models;
 
 const std::array<Color, Color::NUM_COLORS> Color::palette {
 	Color{"red"},

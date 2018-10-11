@@ -1,6 +1,9 @@
 #include "ProposedCombination.h"
+
 #include <iostream>
 #include <cassert>
+
+using namespace models;
 
 ProposedCombination::ProposedCombination() :
 	result(Combination::COMBINATION_SIZE)

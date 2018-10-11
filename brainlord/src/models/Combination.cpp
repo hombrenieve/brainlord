@@ -1,5 +1,8 @@
 #include "Combination.h"
-#include "util/IO.h"
+
+#include "../util/IO.h"
+
+using namespace models;
 
 Combination::Combination() :
 	combination{Color::values()[0], Color::values()[0], Color::values()[0], Color::values()[0] } {

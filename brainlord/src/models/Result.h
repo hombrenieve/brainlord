@@ -1,8 +1,9 @@
-#ifndef RESULT_H_
-#define RESULT_H_
-#include "Success.h"
+#ifndef MODELS_RESULT_H_
+#define MODELS_RESULT_H_
 #include <vector>
+#include "Success.h"
 
+namespace models {
 using resultSuperClass=std::vector<Success>;
 
 class Result : public resultSuperClass {
@@ -17,5 +18,5 @@ public:
 
 	void print() const;
 };
-
+}
 #endif

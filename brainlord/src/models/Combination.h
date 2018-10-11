@@ -1,8 +1,9 @@
-#ifndef COMBINATION_H_
-#define COMBINATION_H_
-#include "Color.h"
+#ifndef MODELS_COMBINATION_H_
+#define MODELS_COMBINATION_H_
 #include <array>
+#include "Color.h"
 
+namespace models {
 class Combination {
 public:
 	static const int COMBINATION_SIZE = 4;
@@ -20,8 +21,7 @@ protected:
 
 private:
 	storage combination;
-
-
 };
+}
 
 #endif
