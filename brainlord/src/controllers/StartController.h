@@ -6,7 +6,7 @@ namespace controllers {
 
 class StartController: public Controller {
 public:
-	StartController();
+	StartController(models::Game& game);
 	virtual ~StartController();
 	void control() override;
 };

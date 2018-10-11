@@ -3,12 +3,19 @@
 namespace models {
 
 Game::Game() :
-	state(State::NOT_STARTED),
-	tries(MAX_PROPOSED_COMBINATION) {
+		state(State::NOT_STARTED),
+		tries(MAX_PROPOSED_COMBINATION) {
 
 }
 
-Game::~Game() {
+State Game::getState() const {
+	return state;
 }
+
+void Game::setState(State state) {
+	this->state = state;
+}
+
+
 
 }

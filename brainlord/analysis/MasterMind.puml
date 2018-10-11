@@ -16,10 +16,13 @@ Result *-- Success
 
 Controller <|-- StartController
 Controller <|-- GuessController
+Controller <|-- ContinueController
 Controller --> Game
 Logic *-- StartController
 Logic *-- GuessController
+Logic *-- ContinueController
 
 MasterMind ..> Logic
+MasterMind --> Controller
 
 @enduml

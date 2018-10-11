@@ -6,7 +6,7 @@ namespace controllers {
 
 class GuessController : public Controller {
 public:
-	GuessController();
+	GuessController(models::Game& game);
 	virtual ~GuessController();
 	void control() override;
 };

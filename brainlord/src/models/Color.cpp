@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <cctype>
 #include <cassert>
 
 using namespace models;
@@ -38,18 +39,17 @@ std::string Color::toUpper(const std::string& original) {
 }
 
 const std::array<Color, Color::NUM_COLORS>& Color::values() {
-    return palette;
+	return palette;
 }
 
-const Color* Color::findColor(std::string substr) {
-	assert(not substr.empty());
-    std::string upperSubstr = Color::toUpper(substr);
-    for(auto& c: Color::palette) {
-        if(c.getName().find(upperSubstr) != std::string::npos) {
-            return &c;
-        }
-    }
-    return nullptr;
+const Color* Color::findColor(char initial) {
+	char capital = toupper(initial);
+	for(auto& c: Color::palette) {
+		if(c.getName()[0] == capital) {
+			return &c;
+		}
+	}
+	return nullptr;
 }
 
 void Color::print() const {

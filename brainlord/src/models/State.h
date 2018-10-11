@@ -6,7 +6,8 @@ namespace models {
 enum class State {
 	NOT_STARTED,
 	PLAYING,
-	END
+	ENDING,
+	EXIT
 };
 
 }

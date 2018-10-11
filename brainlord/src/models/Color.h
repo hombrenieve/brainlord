@@ -14,7 +14,7 @@ public:
 	bool operator==(const Color& color) const;
 
 	static const std::array<Color, NUM_COLORS>& values();
-	static const Color* findColor(std::string substr);
+	static const Color* findColor(char initial);
 	static const Color& read();
 private:
 	std::string name;

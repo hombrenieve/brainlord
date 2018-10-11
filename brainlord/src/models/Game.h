@@ -12,7 +12,9 @@ class Game {
 public:
 	static const int MAX_PROPOSED_COMBINATION = 10;
 	Game();
-	virtual ~Game();
+	State getState() const;
+	void setState(State state);
+
 private:
 	SecretCombination secret;
 	std::array<ProposedCombination,MAX_PROPOSED_COMBINATION> proposedCombinations;
