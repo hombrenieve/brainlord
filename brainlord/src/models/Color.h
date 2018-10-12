@@ -20,8 +20,6 @@ private:
 	std::string name;
 	static const std::array<Color, NUM_COLORS> palette;
 	Color(const std::string& name);
-
-	static std::string toUpper(const std::string& original);
 };
 }
 

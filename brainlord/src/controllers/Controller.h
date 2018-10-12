@@ -1,5 +1,7 @@
 #ifndef CONTROLLERS_CONTROLLER_H_
 #define CONTROLLERS_CONTROLLER_H_
+#include <string>
+
 #include "../models/Game.h"
 #include "../models/State.h"
 
@@ -16,6 +18,16 @@ protected:
 
 	models::State getState();
 	void setState(models::State state);
+
+	int getTry();
+	void nextTry();
+
+	bool isWinner();
+
+	void readGuess();
+	void calculateResult();
+
+	std::string getColors();
 
 	void write();
 };

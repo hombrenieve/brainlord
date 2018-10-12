@@ -7,6 +7,7 @@ class MasterMind {
 SecretCombination "1" --* Game
 ProposedCombination "0..N" --* Game
 State --* Game
+Game ..> Color
 ProposedCombination ..> SecretCombination
 Combination <|-- SecretCombination
 Combination <|-- ProposedCombination

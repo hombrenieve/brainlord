@@ -1,6 +1,7 @@
 #ifndef MODELS_GAME_H_
 #define MODELS_GAME_H_
 #include <array>
+#include <string>
 
 #include "SecretCombination.h"
 #include "ProposedCombination.h"
@@ -19,11 +20,17 @@ public:
 	const SecretCombination& getSecret() const;
 	const storage_combinations& getProposedCombinations() const;
 	void write() const;
-
+	int getTry() const;
+	void nextTry();
+	bool isWinner() const;
+	std::string getColors() const;
+	void readGuess();
+	void calculateResult();
 
 private:
 	SecretCombination secret;
 	storage_combinations proposedCombinations;
+	storage_combinations& getProposedCombinations();
 	State state;
 	int tries;
 

@@ -1,7 +1,6 @@
 #include "Color.h"
 
 #include <iostream>
-#include <sstream>
 #include <cctype>
 #include <cassert>
 
@@ -17,7 +16,7 @@ const std::array<Color, Color::NUM_COLORS> Color::palette {
 };
 
 Color::Color(const std::string& name) :
-	name(toUpper(name)) {
+	name(name) {
 	assert(not name.empty());
 }
 
@@ -32,20 +31,13 @@ bool Color::operator ==(const Color& color) const {
 	return this->getName() == color.getName();
 }
 
-std::string Color::toUpper(const std::string& original) {
-	std::stringstream sstr;
-	sstr << std::uppercase << original;
-	return sstr.str();
-}
-
 const std::array<Color, Color::NUM_COLORS>& Color::values() {
 	return palette;
 }
 
 const Color* Color::findColor(char initial) {
-	char capital = toupper(initial);
 	for(auto& c: Color::palette) {
-		if(c.getName()[0] == capital) {
+		if(c.getName()[0] == tolower(initial)) {
 			return &c;
 		}
 	}
@@ -62,9 +54,9 @@ const Color& Color::read() {
 	const Color* color = nullptr;
 	do {
 		std::cin >> colorName;
-		//color = Color::findColor(colorName);
+		color = Color::findColor(colorName[0]);
 		if(not color) {
-			std::cerr << "Incorrect color" << std::endl;
+			std::cerr << "Incorrect color: Use just the first letter!!" << std::endl;
 		}
 	}	while(not color);
 	return *color;

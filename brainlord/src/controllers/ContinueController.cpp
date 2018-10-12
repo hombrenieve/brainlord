@@ -1,4 +1,5 @@
 #include "ContinueController.h"
+#include <cassert>
 
 namespace controllers {
 
@@ -10,6 +11,8 @@ ContinueController::~ContinueController() {
 }
 
 void controllers::ContinueController::control() {
+	assert(this->getState() == models::State::ENDING);
+	this->setState(models::State::EXIT);
 }
 
 }
