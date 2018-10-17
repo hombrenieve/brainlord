@@ -1,10 +1,11 @@
 #include "SecretCombination.h"
 
 #include <random>
+#include <iostream>
 
 #include "Color.h"
 
-using namespace models;
+namespace models {
 
 SecretCombination::SecretCombination() {
 	std::random_device rd;
@@ -22,3 +23,14 @@ SecretCombination::SecretCombination() {
 SecretCombination::~SecretCombination() {
 }
 
+void SecretCombination::write() const {
+#ifdef NDEBUG
+	for(unsigned int i = 0; i < this->getCombination().size(); i++) {
+		std::cout << "* ";
+	}
+#else
+	Combination::write();
+#endif
+}
+
+}
