@@ -26,11 +26,15 @@ public:
 	std::string getColors() const;
 	void readGuess();
 	void calculateResult();
+	void clear();
 
 private:
 	SecretCombination secret;
 	storage_combinations proposedCombinations;
 	storage_combinations& getProposedCombinations();
+	void setSecret(const SecretCombination& secret);
+	void setTries(int tries);
+
 	State state;
 	int tries;
 

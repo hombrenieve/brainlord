@@ -73,5 +73,20 @@ void Game::calculateResult() {
 	this->getProposedCombinations().back().calculateResult(this->getSecret());
 }
 
+void Game::clear() {
+	this->setState(State::NOT_STARTED);
+	this->setTries(1);
+	this->getProposedCombinations().clear();
+	this->setSecret(SecretCombination());
 }
 
+void Game::setSecret(const SecretCombination& secret) {
+	this->secret = secret;
+}
+
+void Game::setTries(int tries) {
+	assert(tries > 0 and tries < MAX_PROPOSED_COMBINATION);
+	this->tries = tries;
+}
+
+}

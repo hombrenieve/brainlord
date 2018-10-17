@@ -13,6 +13,8 @@ namespace util {
 					}
 			}
 		void showRule(char character);
+
+		bool yesNoDialog(const std::string& title);
 	}
 }
 

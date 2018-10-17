@@ -30,6 +30,8 @@ protected:
 	std::string getColors();
 
 	void write();
+
+	void clear();
 };
 }
 

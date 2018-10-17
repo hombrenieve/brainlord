@@ -48,4 +48,8 @@ void Controller::write() {
 	this->getGame().write();
 }
 
+void Controller::clear() {
+	this->getGame().clear();
+}
+
 }
