@@ -2,10 +2,10 @@
 
 #include "../util/IO.h"
 
-using namespace models;
+namespace models {
 
 Combination::Combination() :
-	combination{Color::values()[0], Color::values()[0], Color::values()[0], Color::values()[0] } {
+	combination{Color::RED, Color::RED, Color::RED, Color::RED } {
 
 }
 
@@ -13,7 +13,7 @@ Combination::~Combination() {
 }
 
 void Combination::write() const {
-	util::IO::show(this->getCombination());
+	util::IO::write(this->getCombination());
 }
 
 Combination::storage& Combination::getCombination() {
@@ -22,4 +22,6 @@ Combination::storage& Combination::getCombination() {
 
 const Combination::storage& Combination::getCombination() const {
 	return combination;
+}
+
 }

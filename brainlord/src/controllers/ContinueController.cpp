@@ -13,15 +13,15 @@ ContinueController::~ContinueController() {
 }
 
 void controllers::ContinueController::control() {
-	assert(this->getState() == models::State::ENDING);
+	assert(this->getGame().getState() == models::State::ENDING);
 	std::cout << std::endl;
 	if(util::IO::yesNoDialog("Do you want to play again?")) {
-		this->clear();
+		this->getGame().clear();
 		std::cout << std::endl;
-		this->setState(models::State::NOT_STARTED);
+		this->getGame().setState(models::State::NOT_STARTED);
 	} else {
 		std::cout << std::endl << "Bye bye!" << std::endl << std::endl;
-		this->setState(models::State::EXIT);
+		this->getGame().setState(models::State::EXIT);
 	}
 }
 

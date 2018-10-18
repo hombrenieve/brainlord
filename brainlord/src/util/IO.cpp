@@ -2,7 +2,7 @@
 
 namespace util {
 namespace IO {
-void showRule(char character) {
+void writeRule(char character) {
 	std::string rule(40, character);
 	std::cout << rule << std::endl;
 }

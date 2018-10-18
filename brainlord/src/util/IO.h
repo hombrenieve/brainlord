@@ -6,13 +6,13 @@
 namespace util {
 	namespace IO {
 		template<typename iterableClass>
-			void show(const iterableClass& iterable, const std::string& separator = " ") {
+			void write(const iterableClass& iterable, const std::string& separator = " ") {
 				for(const auto& item: iterable) {
 						item.write();
 						std::cout << separator;
 					}
 			}
-		void showRule(char character);
+		void writeRule(char character);
 
 		bool yesNoDialog(const std::string& title);
 	}

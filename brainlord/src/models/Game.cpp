@@ -42,12 +42,12 @@ void Game::nextTry() {
 }
 
 void Game::write() const {
-	util::IO::showRule('#');
+	util::IO::writeRule('#');
 	this->getSecret().write();
 	std::cout << std::endl;
-	util::IO::showRule('-');
-	util::IO::show(this->getProposedCombinations(), "\n");
-	util::IO::showRule('#');
+	util::IO::writeRule('-');
+	util::IO::write(this->getProposedCombinations(), "\n");
+	util::IO::writeRule('#');
 }
 
 bool Game::isWinner() const {

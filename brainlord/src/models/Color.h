@@ -7,6 +7,12 @@ namespace models {
 class Color {
 public:
 	static const int NUM_COLORS = 6;
+	static const Color RED;
+	static const Color BLUE;
+	static const Color YELLOW;
+	static const Color GREEN;
+	static const Color PINK;
+	static const Color ORANGE;
 
 	virtual ~Color();
 	std::string getName() const;

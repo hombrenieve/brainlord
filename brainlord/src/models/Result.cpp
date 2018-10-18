@@ -6,7 +6,7 @@
 
 #include "Success.h"
 
-using namespace models;
+namespace models {
 
 Result::Result(int size) : resultSuperClass(size, Success::EMPTY)
 { }
@@ -31,4 +31,6 @@ unsigned int Result::getRightlyPositionedCounter() const
 void Result::write() const {
 	std::cout << "Black: " << this->getRightlyPositionedCounter() << ", "
 			<< "White: " << this->getRightlyColoredCounter();
+}
+
 }

@@ -12,22 +12,22 @@ GuessController::~GuessController() {
 }
 
 void GuessController::control() {
-	assert(this->getState() == models::State::PLAYING);
-	std::cout << "New try: " << this->getTry() << " out of "
+	assert(this->getGame().getState() == models::State::PLAYING);
+	std::cout << "New try: " << this->getGame().getTry() << " out of "
 			<< models::Game::MAX_PROPOSED_COMBINATION << std::endl;
 	std::cout << "Please, make your guess, valid colors are ( " <<
-			this->getColors() << " )" << std::endl;
-	this->readGuess();
-	this->calculateResult();
-	this->write();
-	if(this->isWinner()) {
+			this->getGame().getColors() << " )" << std::endl;
+	this->getGame().readGuess();
+	this->getGame().calculateResult();
+	this->getGame().write();
+	if(this->getGame().isWinner()) {
 		std::cout << "Congratulations!!, You Won!!!" << std::endl;
-		this->setState(models::State::ENDING);
+		this->getGame().setState(models::State::ENDING);
 	} else {
-		this->nextTry();
-		if(this->getTry() == models::Game::MAX_PROPOSED_COMBINATION) {
+		this->getGame().nextTry();
+		if(this->getGame().getTry() == models::Game::MAX_PROPOSED_COMBINATION) {
 			std::cout << "So sorry you lost the game :'-(" << std::endl;
-			this->setState(models::State::ENDING);
+			this->getGame().setState(models::State::ENDING);
 		}
 	}
 }

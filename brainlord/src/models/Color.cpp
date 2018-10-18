@@ -4,15 +4,22 @@
 #include <cctype>
 #include <cassert>
 
-using namespace models;
+namespace models {
+
+const Color Color::RED("red");
+const Color Color::BLUE("blue");
+const Color Color::YELLOW("yellow");
+const Color Color::GREEN("green");
+const Color Color::PINK("pink");
+const Color Color::ORANGE("orange");
 
 const std::array<Color, Color::NUM_COLORS> Color::palette {
-	Color{"red"},
-	Color{"blue"},
-	Color{"yellow"},
-	Color{"green"},
-	Color{"pink"},
-	Color{"orange"}
+	Color::RED,
+	Color::BLUE,
+	Color::YELLOW,
+	Color::GREEN,
+	Color::PINK,
+	Color::ORANGE
 };
 
 Color::Color(const std::string& name) :
@@ -60,4 +67,6 @@ const Color& Color::read() {
 		}
 	}	while(not color);
 	return *color;
+}
+
 }

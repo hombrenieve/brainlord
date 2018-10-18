@@ -15,23 +15,6 @@ private:
 	models::Game& game;
 protected:
 	models::Game& getGame();
-
-	models::State getState();
-	void setState(models::State state);
-
-	int getTry();
-	void nextTry();
-
-	bool isWinner();
-
-	void readGuess();
-	void calculateResult();
-
-	std::string getColors();
-
-	void write();
-
-	void clear();
 };
 }
 
