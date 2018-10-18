@@ -9,6 +9,7 @@ public:
 	StartController(models::Game& game);
 	virtual ~StartController();
 	void control() override;
+	void accept(ControllerVisitor* visitor) override;
 };
 
 }

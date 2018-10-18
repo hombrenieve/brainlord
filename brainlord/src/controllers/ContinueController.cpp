@@ -25,4 +25,8 @@ void controllers::ContinueController::control() {
 	}
 }
 
+void ContinueController::accept(ControllerVisitor* visitor) {
+	visitor->visit(this);
+}
+
 }

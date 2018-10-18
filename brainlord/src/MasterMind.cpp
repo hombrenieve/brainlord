@@ -6,7 +6,7 @@ void MasterMind::play() {
 	do {
 		controller = logic.getController();
 		if(controller != nullptr) {
-			controller->control();
+			view.interact(controller);
 		}
 	} while(controller != nullptr);
 }

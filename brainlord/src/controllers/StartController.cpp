@@ -20,4 +20,8 @@ void StartController::control() {
 	this->getGame().setState(models::State::PLAYING);
 }
 
+void StartController::accept(ControllerVisitor* visitor) {
+	visitor->visit(this);
+}
+
 }

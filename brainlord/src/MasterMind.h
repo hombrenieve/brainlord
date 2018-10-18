@@ -1,6 +1,7 @@
 #ifndef MASTERMIND_H_
 #define MASTERMIND_H_
 #include "controllers/Logic.h"
+#include "views/ConsoleView.h"
 
 class MasterMind {
 public:
@@ -8,6 +9,7 @@ public:
 
 private:
 	controllers::Logic logic;
+	views::ConsoleView view;
 };
 
 #endif

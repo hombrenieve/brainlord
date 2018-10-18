@@ -2,9 +2,9 @@
 #define LOGIC_H_
 
 #include "../models/Game.h"
-#include "GuessController.h"
 #include "StartController.h"
 #include "ContinueController.h"
+#include "ProposalController.h"
 
 namespace controllers {
 class Logic {
@@ -15,7 +15,7 @@ public:
 private:
 	models::Game game;
 	StartController startController;
-	GuessController guessController;
+	ProposalController guessController;
 	ContinueController continueController;
 };
 }

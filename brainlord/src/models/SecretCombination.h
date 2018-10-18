@@ -7,7 +7,7 @@ class SecretCombination : public Combination {
 public:
 	SecretCombination();
 	virtual ~SecretCombination();
-	void write() const;
+	void write() const override;
 };
 }
 #endif

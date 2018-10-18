@@ -1,17 +1,17 @@
-#include "GuessController.h"
 #include <cassert>
 #include <iostream>
+#include "ProposalController.h"
 
 namespace controllers {
 
-GuessController::GuessController(models::Game& game) :
+ProposalController::ProposalController(models::Game& game) :
 	Controller(game)
 { }
 
-GuessController::~GuessController() {
+ProposalController::~ProposalController() {
 }
 
-void GuessController::control() {
+void ProposalController::control() {
 	assert(this->getGame().getState() == models::State::PLAYING);
 	std::cout << "New try: " << this->getGame().getTry() << " out of "
 			<< models::Game::MAX_PROPOSED_COMBINATION << std::endl;
@@ -30,6 +30,10 @@ void GuessController::control() {
 			this->getGame().setState(models::State::ENDING);
 		}
 	}
+}
+
+void ProposalController::accept(ControllerVisitor* visitor) {
+	visitor->visit(this);
 }
 
 }

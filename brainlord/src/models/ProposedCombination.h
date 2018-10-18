@@ -12,7 +12,7 @@ public:
 	void read();
 	void calculateResult(const SecretCombination& secret);
 	bool isWinner() const;
-	void write() const;
+	void write() const override;
 
 private:
 	void calculateBlacks(const Combination& secret);
