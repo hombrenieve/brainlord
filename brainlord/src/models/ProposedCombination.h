@@ -15,9 +15,9 @@ public:
 	void write() const;
 
 private:
-	void calculateBlacks(const Combination::storage& guess, const Combination::storage& secret);
-	void calculateWhites(const Combination::storage& guess, const Combination::storage& secret);
-	int findMatch(const Color& current, const Combination::storage& secret);
+	void calculateBlacks(const Combination& secret);
+	void calculateWhites(const Combination& secret);
+	int findMatch(const Color& current, const Combination& secret);
 	Result result;
 };
 }
