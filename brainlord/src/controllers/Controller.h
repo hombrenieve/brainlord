@@ -11,8 +11,8 @@ class Controller {
 public:
 	Controller(models::Game& game);
 	virtual ~Controller();
-	virtual void control() = 0;
 	virtual void accept(ControllerVisitor* visitor) = 0;
+	const models::Game& getGame() const;
 private:
 	models::Game& game;
 protected:

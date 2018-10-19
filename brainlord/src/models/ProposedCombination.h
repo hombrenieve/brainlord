@@ -11,8 +11,8 @@ public:
 	virtual ~ProposedCombination();
 	void read();
 	void calculateResult(const SecretCombination& secret);
+	const Result& getResult() const;
 	bool isWinner() const;
-	void write() const override;
 
 private:
 	void calculateBlacks(const Combination& secret);

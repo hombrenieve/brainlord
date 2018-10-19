@@ -8,7 +8,6 @@ class ProposalController : public Controller {
 public:
 	ProposalController(models::Game& game);
 	virtual ~ProposalController();
-	void control() override;
 	void accept(ControllerVisitor* visitor) override;
 };
 

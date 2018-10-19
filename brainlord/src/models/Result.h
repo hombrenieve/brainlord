@@ -15,8 +15,6 @@ public:
 	unsigned int getRightlyColoredCounter() const;
 
 	unsigned int getRightlyPositionedCounter() const;
-
-	void write() const;
 };
 }
 #endif

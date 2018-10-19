@@ -41,15 +41,6 @@ void Game::nextTry() {
 	this->tries++;
 }
 
-void Game::write() const {
-	util::IO::writeRule('#');
-	this->getSecret().write();
-	std::cout << std::endl;
-	util::IO::writeRule('-');
-	util::IO::write(this->getProposedCombinations(), "\n");
-	util::IO::writeRule('#');
-}
-
 bool Game::isWinner() const {
 	assert(not this->getProposedCombinations().empty());
 	return this->getProposedCombinations().back().isWinner();

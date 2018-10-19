@@ -16,7 +16,6 @@ public:
 
 	virtual ~Color();
 	std::string getName() const;
-	void write() const;
 	bool operator==(const Color& color) const;
 
 	static const std::array<Color, NUM_COLORS>& values();

@@ -19,7 +19,6 @@ public:
 	void setState(State state);
 	const SecretCombination& getSecret() const;
 	const storage_combinations& getProposedCombinations() const;
-	void write() const;
 	int getTry() const;
 	void nextTry();
 	bool isWinner() const;

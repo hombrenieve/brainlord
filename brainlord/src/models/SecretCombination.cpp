@@ -1,7 +1,6 @@
 #include "SecretCombination.h"
 
 #include <random>
-#include <iostream>
 
 #include "Color.h"
 
@@ -21,16 +20,6 @@ SecretCombination::SecretCombination() {
 }
 
 SecretCombination::~SecretCombination() {
-}
-
-void SecretCombination::write() const {
-#ifdef NDEBUG
-	for(unsigned int i = 0; i < this->getCombination().size(); i++) {
-		std::cout << "* ";
-	}
-#else
-	Combination::write();
-#endif
 }
 
 }

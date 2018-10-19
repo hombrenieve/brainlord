@@ -55,10 +55,8 @@ bool ProposedCombination::isWinner() const {
 	return this->result.isWinner();
 }
 
-void ProposedCombination::write() const {
-	Combination::write();
-	std::cout << " | ";
-	result.write();
+const Result& ProposedCombination::getResult() const {
+	return result;
 }
 
 }

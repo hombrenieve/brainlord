@@ -51,10 +51,6 @@ const Color* Color::findColor(char initial) {
 	return nullptr;
 }
 
-void Color::write() const {
-	std::cout << this->getName();
-}
-
 
 const Color& Color::read() {
 	std::string colorName;

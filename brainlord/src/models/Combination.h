@@ -12,8 +12,6 @@ public:
 	Combination();
 	virtual ~Combination();
 
-	virtual void write() const;
-
 	const storage& getCombination() const;
 
 protected:

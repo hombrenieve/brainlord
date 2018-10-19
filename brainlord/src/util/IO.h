@@ -5,14 +5,14 @@
 
 namespace util {
 	namespace IO {
-		template<typename iterableClass>
-			void write(const iterableClass& iterable, const std::string& separator = " ") {
-				for(const auto& item: iterable) {
-						item.write();
-						std::cout << separator;
-					}
-			}
+		void writeTitle(const std::string& title);
+
 		void writeRule(char character);
+
+		void writeSecret(int size);
+
+		void write(const std::string& sentence);
+		void writeln(const std::string& sentence);
 
 		bool yesNoDialog(const std::string& title);
 	}

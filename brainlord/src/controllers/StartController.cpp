@@ -13,10 +13,8 @@ StartController::~StartController() {
 
 
 
-void StartController::control() {
+void StartController::start() {
 	assert(this->getGame().getState() == models::State::NOT_STARTED);
-	std::cout << "Wellcome to MasterMind" << std::endl << std::endl;
-	this->getGame().write();
 	this->getGame().setState(models::State::PLAYING);
 }
 

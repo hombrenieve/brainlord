@@ -12,4 +12,8 @@ models::Game& Controller::getGame() {
 	return game;
 }
 
+const models::Game& Controller::getGame() const {
+	return game;
+}
+
 }

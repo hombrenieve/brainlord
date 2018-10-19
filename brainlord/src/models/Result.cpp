@@ -1,7 +1,6 @@
 #include "Result.h"
 
 #include <algorithm>
-#include <iostream>
 #include <vector>
 
 #include "Success.h"
@@ -26,11 +25,6 @@ unsigned int Result::getRightlyColoredCounter() const
 unsigned int Result::getRightlyPositionedCounter() const
 {
 	return std::count(this->begin(), this->end(), Success::BLACK);
-}
-
-void Result::write() const {
-	std::cout << "Black: " << this->getRightlyPositionedCounter() << ", "
-			<< "White: " << this->getRightlyColoredCounter();
 }
 
 }
