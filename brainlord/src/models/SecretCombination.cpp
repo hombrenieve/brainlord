@@ -13,7 +13,7 @@ SecretCombination::SecretCombination() {
 
 	auto palette = Color::values();
 
-	for(auto& combinationElement: this->getCombination()) {
+	for(auto& combinationElement: (*this)) {
 		combinationElement = palette[dist(mt)];
 	}
 

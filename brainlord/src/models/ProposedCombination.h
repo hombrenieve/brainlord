@@ -7,9 +7,8 @@
 namespace models {
 class ProposedCombination : public Combination {
 public:
-	ProposedCombination();
+	ProposedCombination(const Combination& combination);
 	virtual ~ProposedCombination();
-	void read();
 	void calculateResult(const SecretCombination& secret);
 	const Result& getResult() const;
 	bool isWinner() const;

@@ -20,7 +20,6 @@ public:
 
 	static const std::array<Color, NUM_COLORS>& values();
 	static const Color* findColor(char initial);
-	static const Color& read();
 private:
 	std::string name;
 	static const std::array<Color, NUM_COLORS> palette;

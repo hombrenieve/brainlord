@@ -7,6 +7,7 @@ namespace views {
 class ProposedCombinationView {
 public:
 	ProposedCombinationView(const models::ProposedCombination& proposed);
+	ProposedCombinationView();
 	virtual ~ProposedCombinationView() = default;
 	void write();
 private:

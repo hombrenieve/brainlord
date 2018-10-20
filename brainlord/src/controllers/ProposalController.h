@@ -9,6 +9,11 @@ public:
 	ProposalController(models::Game& game);
 	virtual ~ProposalController();
 	void accept(ControllerVisitor* visitor) override;
+
+	void propose(models::ProposedCombination proposal);
+
+	bool isWinner() const;
+	bool isLoser() const;
 };
 
 }

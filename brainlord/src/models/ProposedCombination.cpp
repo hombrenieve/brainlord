@@ -1,11 +1,11 @@
 #include "ProposedCombination.h"
 
-#include <iostream>
 #include <cassert>
 
 namespace models {
 
-ProposedCombination::ProposedCombination() :
+ProposedCombination::ProposedCombination(const Combination& combination) :
+	Combination(combination),
 	result(Combination::COMBINATION_SIZE)
 {
 }
@@ -13,15 +13,9 @@ ProposedCombination::ProposedCombination() :
 ProposedCombination::~ProposedCombination() {
 }
 
-void ProposedCombination::read() {
-	for(auto& combinationElement: this->getCombination()) {
-		combinationElement = Color::read();
-	}
-}
-
 void ProposedCombination::calculateBlacks(const Combination& secret) {
 	for(int i = 0; i < Combination::COMBINATION_SIZE; i++) {
-		if(this->getCombination()[i] == secret.getCombination()[i]) {
+		if(this->at(i) == secret[i]) {
 			result[i] = Success::BLACK;
 		}
 	}
@@ -29,7 +23,7 @@ void ProposedCombination::calculateBlacks(const Combination& secret) {
 
 int ProposedCombination::findMatch(const Color& current, const Combination& secret) {
 	for(int i = 0; i < Combination::COMBINATION_SIZE; i++) {
-		if(current == secret.getCombination()[i] and result[i] == Success::EMPTY){
+		if(current == secret[i] and result[i] == Success::EMPTY){
 			return i;
 		}
 	}
@@ -38,7 +32,7 @@ int ProposedCombination::findMatch(const Color& current, const Combination& secr
 
 void ProposedCombination::calculateWhites(const Combination& secret) {
 	for(int i = 0; i < Combination::COMBINATION_SIZE; i++) {
-		int white = this->findMatch(this->getCombination()[i], secret);
+		int white = this->findMatch(this->at(i), secret);
 		if(white != -1) {
 			result[white] = Success::WHITE;
 		}

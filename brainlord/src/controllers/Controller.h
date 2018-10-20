@@ -1,6 +1,5 @@
 #ifndef CONTROLLERS_CONTROLLER_H_
 #define CONTROLLERS_CONTROLLER_H_
-#include <string>
 
 #include "../models/Game.h"
 #include "../models/State.h"

@@ -2,17 +2,26 @@
 
 #include "ProposedCombinationListView.h"
 #include "SecretCombinationView.h"
+
+#include <cassert>
+#include <iostream>
+
 namespace views {
 
-GameView::GameView(controllers::Controller* controller) :
+GameView::GameView(const controllers::Controller* controller) :
 	controller(controller)
 {
+	assert(controller != nullptr);
 }
 
 void GameView::write() {
-	const controllers::Controller* ccontroller = controller;
-	SecretCombinationView(ccontroller->getGame().getSecret()).write();
-	ProposedCombinationListView(ccontroller->getGame().getProposedCombinations()).write();
+	SecretCombinationView(controller->getGame().getSecret()).write();
+	ProposedCombinationListView(controller->getGame().getProposedCombinations()).write();
+}
+
+void GameView::writeTry() {
+	std::cout << "Current try: "  << controller->getGame().getTry() << " out of " <<
+			models::Game::MAX_PROPOSED_COMBINATION << std::endl;
 }
 
 }

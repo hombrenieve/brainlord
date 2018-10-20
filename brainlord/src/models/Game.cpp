@@ -1,8 +1,5 @@
 #include "Game.h"
 #include "Color.h"
-#include "../util/IO.h"
-#include <iostream>
-#include <sstream>
 #include <cassert>
 
 namespace models {
@@ -46,22 +43,8 @@ bool Game::isWinner() const {
 	return this->getProposedCombinations().back().isWinner();
 }
 
-std::string Game::getColors() const {
-	std::ostringstream colors;
-	for(const auto& color: Color::values()) {
-		colors << color.getName() << " ";
-	}
-	return colors.str().substr(0,colors.str().size()-1);
-}
-
-void Game::readGuess() {
-	ProposedCombination proposal;
-	proposal.read();
-	this->getProposedCombinations().push_back(proposal);
-}
-
-void Game::calculateResult() {
-	this->getProposedCombinations().back().calculateResult(this->getSecret());
+bool Game::isLoser() const {
+	return this->getTry() == MAX_PROPOSED_COMBINATION;
 }
 
 void Game::clear() {
@@ -73,6 +56,10 @@ void Game::clear() {
 
 void Game::setSecret(const SecretCombination& secret) {
 	this->secret = secret;
+}
+
+void Game::addProposal(const ProposedCombination& proposal) {
+	this->getProposedCombinations().push_back(proposal);
 }
 
 void Game::setTries(int tries) {

@@ -1,7 +1,6 @@
 #ifndef MODELS_GAME_H_
 #define MODELS_GAME_H_
-#include <array>
-#include <string>
+#include <vector>
 
 #include "SecretCombination.h"
 #include "ProposedCombination.h"
@@ -22,9 +21,8 @@ public:
 	int getTry() const;
 	void nextTry();
 	bool isWinner() const;
-	std::string getColors() const;
-	void readGuess();
-	void calculateResult();
+	bool isLoser() const;
+	void addProposal(const ProposedCombination& proposal);
 	void clear();
 
 private:

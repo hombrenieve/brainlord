@@ -15,6 +15,7 @@ void SecretCombinationView::write() {
 	util::IO::writeSecret(secret.getCombination().size());
 #else
 	CombinationView(secret).write();
+	util::IO::writeln("");
 #endif
 	util::IO::writeRule('-');
 }

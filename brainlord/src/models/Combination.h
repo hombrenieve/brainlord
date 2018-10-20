@@ -1,24 +1,19 @@
 #ifndef MODELS_COMBINATION_H_
 #define MODELS_COMBINATION_H_
-#include <array>
+#include <vector>
 #include "Color.h"
 
 namespace models {
-class Combination {
+using CombinationStorage=std::vector<Color>;
+
+class Combination : public CombinationStorage{
 public:
 	static const int COMBINATION_SIZE = 4;
-	using storage=std::array<Color, COMBINATION_SIZE>;
 
 	Combination();
+	Combination(const CombinationStorage& combination);
 	virtual ~Combination();
 
-	const storage& getCombination() const;
-
-protected:
-	storage& getCombination();
-
-private:
-	storage combination;
 };
 }
 

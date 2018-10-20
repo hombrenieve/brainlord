@@ -1,6 +1,5 @@
 #include "Color.h"
 
-#include <iostream>
 #include <cctype>
 #include <cassert>
 
@@ -49,20 +48,6 @@ const Color* Color::findColor(char initial) {
 		}
 	}
 	return nullptr;
-}
-
-
-const Color& Color::read() {
-	std::string colorName;
-	const Color* color = nullptr;
-	do {
-		std::cin >> colorName;
-		color = Color::findColor(colorName[0]);
-		if(not color) {
-			std::cerr << "Incorrect color: Use just the first letter!!" << std::endl;
-		}
-	}	while(not color);
-	return *color;
 }
 
 }

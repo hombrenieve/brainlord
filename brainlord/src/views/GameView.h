@@ -6,11 +6,12 @@ namespace views {
 
 class GameView {
 public:
-	GameView(controllers::Controller* controller);
+	GameView(const controllers::Controller* controller);
 	virtual ~GameView() = default;
 	void write();
+	void writeTry();
 private:
-	controllers::Controller* controller;
+	const controllers::Controller* controller;
 };
 
 }

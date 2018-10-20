@@ -12,11 +12,19 @@ CombinationView::CombinationView(const models::Combination& combination) :
 
 void CombinationView::write() {
 	util::IO::write("( ");
-	for(const auto& color: combination.getCombination()) {
+	for(const auto& color: combination) {
 		ColorView(color).write();
 		util::IO::write(" ");
 	}
-	util::IO::writeln(")");
+	util::IO::write(")");
+}
+
+models::Combination CombinationView::read() {
+	util::IO::write("Insert combination: ");
+	for(auto& color: combination) {
+		color = ColorView().read();
+	}
+	return combination;
 }
 
 }

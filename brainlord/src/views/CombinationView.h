@@ -7,11 +7,13 @@ namespace views {
 class CombinationView {
 public:
 	CombinationView(const models::Combination& combination);
+	CombinationView() = default;
 	virtual ~CombinationView() = default;
 	void write();
+	models::Combination read();
 
 private:
-	const models::Combination& combination;
+	models::Combination combination;
 };
 
 }
