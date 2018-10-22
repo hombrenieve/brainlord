@@ -11,6 +11,7 @@ ProposalController::~ProposalController() {
 }
 
 void ProposalController::accept(ControllerVisitor* visitor) {
+	assert(visitor != nullptr);
 	visitor->visit(this);
 }
 

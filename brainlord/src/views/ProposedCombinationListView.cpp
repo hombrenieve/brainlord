@@ -4,7 +4,7 @@
 #include "ProposedCombinationView.h"
 namespace views {
 
-ProposedCombinationListView::ProposedCombinationListView(const models::Game::storage_combinations& proposedList) :
+ProposedCombinationListView::ProposedCombinationListView(const models::Game::CombinationList& proposedList) :
 	proposedList(proposedList)
 {
 }

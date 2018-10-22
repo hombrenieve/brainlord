@@ -8,8 +8,11 @@ class StartController: public Controller {
 public:
 	StartController(models::Game& game);
 	virtual ~StartController();
-	void start();
+
 	void accept(ControllerVisitor* visitor) override;
+
+	void start();
+
 };
 
 }

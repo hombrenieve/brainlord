@@ -16,7 +16,7 @@ public:
 private:
 	void calculateBlacks(const Combination& secret);
 	void calculateWhites(const Combination& secret);
-	int findMatch(const Color& current, const Combination& secret);
+	int findIndex(const Color& current, const Combination& secret);
 	Result result;
 };
 }

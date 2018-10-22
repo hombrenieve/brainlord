@@ -1,5 +1,8 @@
 #include "Combination.h"
 
+#include <cassert>
+
+
 namespace models {
 
 Combination::Combination() :
@@ -9,7 +12,9 @@ Combination::Combination() :
 
 Combination::Combination(const CombinationStorage& combination) :
 		CombinationStorage(combination)
-{ }
+{
+	assert(combination.size() == COMBINATION_SIZE);
+}
 
 Combination::~Combination() {
 }

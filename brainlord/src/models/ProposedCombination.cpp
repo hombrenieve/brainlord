@@ -21,7 +21,7 @@ void ProposedCombination::calculateBlacks(const Combination& secret) {
 	}
 }
 
-int ProposedCombination::findMatch(const Color& current, const Combination& secret) {
+int ProposedCombination::findIndex(const Color& current, const Combination& secret) {
 	for(int i = 0; i < Combination::COMBINATION_SIZE; i++) {
 		if(current == secret[i] and result[i] == Success::EMPTY){
 			return i;
@@ -32,7 +32,7 @@ int ProposedCombination::findMatch(const Color& current, const Combination& secr
 
 void ProposedCombination::calculateWhites(const Combination& secret) {
 	for(int i = 0; i < Combination::COMBINATION_SIZE; i++) {
-		int white = this->findMatch(this->at(i), secret);
+		int white = this->findIndex(this->at(i), secret);
 		if(white != -1) {
 			result[white] = Success::WHITE;
 		}

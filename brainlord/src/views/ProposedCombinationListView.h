@@ -6,12 +6,12 @@ namespace views {
 
 class ProposedCombinationListView {
 public:
-	ProposedCombinationListView(const models::Game::storage_combinations& proposedList);
+	ProposedCombinationListView(const models::Game::CombinationList& proposedList);
 	virtual ~ProposedCombinationListView() = default;
 	void write();
 
 private:
-	const models::Game::storage_combinations& proposedList;
+	const models::Game::CombinationList& proposedList;
 };
 
 }

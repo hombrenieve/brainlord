@@ -2,7 +2,6 @@
 #define CONTROLLERS_CONTROLLER_H_
 
 #include "../models/Game.h"
-#include "../models/State.h"
 #include "ControllerVisitor.h"
 
 namespace controllers {

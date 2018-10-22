@@ -7,7 +7,7 @@
 
 namespace models {
 
-Result::Result(int size) : resultSuperClass(size, Success::EMPTY)
+Result::Result(int size) : ResultStorage(size, Success::EMPTY)
 { }
 
 Result::~Result() {

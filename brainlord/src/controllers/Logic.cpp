@@ -4,7 +4,7 @@ namespace controllers {
 
 Logic::Logic() :
 	startController(game),
-	guessController(game),
+	proposalController(game),
 	continueController(game)
 {
 }
@@ -17,7 +17,7 @@ Controller* Logic::getController() {
 	case models::State::NOT_STARTED:
 		return &startController;
 	case models::State::PLAYING:
-		return &guessController;
+		return &proposalController;
 	case models::State::ENDING:
 		return &continueController;
 	case models::State::EXIT:

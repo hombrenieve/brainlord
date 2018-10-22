@@ -15,7 +15,7 @@ public:
 private:
 	models::Game game;
 	StartController startController;
-	ProposalController guessController;
+	ProposalController proposalController;
 	ContinueController continueController;
 };
 }

@@ -22,11 +22,11 @@ const SecretCombination& Game::getSecret() const {
 	return secret;
 }
 
-const Game::storage_combinations& Game::getProposedCombinations() const {
+const Game::CombinationList& Game::getProposedCombinations() const {
 	return proposedCombinations;
 }
 
-Game::storage_combinations& Game::getProposedCombinations() {
+Game::CombinationList& Game::getProposedCombinations() {
 	return proposedCombinations;
 }
 

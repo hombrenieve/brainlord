@@ -1,6 +1,5 @@
 #include "StartController.h"
 #include <cassert>
-#include <iostream>
 
 namespace controllers {
 
@@ -17,6 +16,7 @@ void StartController::start() {
 }
 
 void StartController::accept(ControllerVisitor* visitor) {
+	assert(visitor != nullptr);
 	visitor->visit(this);
 }
 

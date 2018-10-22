@@ -4,9 +4,9 @@
 #include "Success.h"
 
 namespace models {
-using resultSuperClass=std::vector<Success>;
+using ResultStorage=std::vector<Success>;
 
-class Result : public resultSuperClass {
+class Result : public ResultStorage {
 public:
 	Result(int size);
 	virtual ~Result();
