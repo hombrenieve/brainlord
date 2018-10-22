@@ -1,37 +1,63 @@
 #include "IO.h"
 
 namespace util {
-namespace IO {
-void writeRule(char character) {
-	std::string rule(40, character);
-	std::cout << rule << std::endl;
+
+const std::string IO::NEW_LINE("\n");
+
+void IO::writeTitle(const std::string& title) {
+	IO::write(std::cout, NEW_LINE + title + NEW_LINE + NEW_LINE);
 }
 
-void writeSecret(int size) {
-	std::cout << std::string(size, '*') << std::endl;
+void IO::writeRule(char character) {
+	IO::write(std::cout, std::string(RULE_WIDTH, character) + NEW_LINE);
 }
 
-void writeTitle(const std::string& title) {
-	std::cout << std::endl << title << std::endl << std::endl;
+void IO::writeSecret(int size) {
+	IO::write(std::cout, std::string(size, '*') + NEW_LINE);
 }
 
-void write(const std::string& sentence) {
-	std::cout << sentence;
-}
-void writeln(const std::string& sentence) {
-	std::cout << sentence << std::endl;
+void IO::write(const std::string& sentence) {
+	IO::write(std::cout, sentence);
 }
 
-bool yesNoDialog(const std::string& title) {
+void IO::writeln(const std::string& sentence) {
+	IO::write(sentence + NEW_LINE);
+}
+
+void IO::writeError(const std::string& sentence) {
+	IO::write(std::cerr, sentence);
+}
+
+void IO::writelnError(const std::string& sentence) {
+	IO::writeError(sentence + NEW_LINE);
+}
+
+bool IO::yesNoDialog(const std::string& title) {
 	char c;
 	do {
-		std::cout << title << " (Y/N):";
-		std::flush(std::cout);
-		std::cin >> c;
+		IO::write(title + " (Y/N):");
+		c = IO::readChar();
 	} while (c != 'y' and c != 'Y' and c != 'n' and c != 'N');
 	return c == 'y' or c == 'Y';
 }
 
-}
+char IO::readChar() {
+	char charToRead;
+	std::cin >> charToRead;
+	return charToRead;
 }
 
+void IO::write(const std::string& sentence, int data) {
+	IO::write(sentence + std::to_string(data));
+}
+
+void IO::writeln(const std::string& sentence, int data) {
+	IO::writeln(sentence + std::to_string(data));
+}
+
+void IO::write(std::ostream& output, const std::string& sentence) {
+	output << sentence;
+	std::flush(output);
+}
+
+}

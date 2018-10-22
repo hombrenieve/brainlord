@@ -4,7 +4,9 @@
 #include "SecretCombinationView.h"
 
 #include <cassert>
-#include <iostream>
+
+#include "../util/IO.h"
+
 
 namespace views {
 
@@ -20,8 +22,8 @@ void GameView::write() {
 }
 
 void GameView::writeTry() {
-	std::cout << "Current try: "  << controller->getGame().getTry() << " out of " <<
-			models::Game::MAX_PROPOSED_COMBINATION << std::endl;
+	util::IO::write("Current try: ", controller->getGame().getTry());
+	util::IO::writeln(" out of ", models::Game::MAX_PROPOSED_COMBINATION);
 }
 
 }

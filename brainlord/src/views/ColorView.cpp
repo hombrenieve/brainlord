@@ -2,6 +2,7 @@
 
 #include <sstream>
 #include "../util/IO.h"
+
 namespace views {
 
 ColorView::ColorView(const models::Color& color) :
@@ -11,7 +12,7 @@ ColorView::ColorView(const models::Color& color) :
 }
 
 ColorView::ColorView() :
-		color(models::Color::RED)
+	color(models::Color::RED)
 {
 }
 
@@ -20,13 +21,13 @@ void ColorView::write() {
 }
 
 models::Color ColorView::read() {
-	std::string colorName;
+	char colorName;
 	const models::Color* color = nullptr;
 	do {
-		std::cin >> colorName;
-		color = models::Color::findColor(colorName[0]);
+		colorName = util::IO::readChar();
+		color = models::Color::findColor(colorName);
 		if(not color) {
-			std::cerr << "Incorrect color: Use just the first letter!!" << std::endl;
+			util::IO::writelnError("Incorrect color: Use just the first letter!!");
 		}
 	}	while(not color);
 	this->color = *color;

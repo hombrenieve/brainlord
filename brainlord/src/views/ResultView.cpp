@@ -1,5 +1,6 @@
 #include "ResultView.h"
-#include <iostream>
+
+#include "../util/IO.h"
 
 namespace views {
 
@@ -9,8 +10,8 @@ ResultView::ResultView(const models::Result& result) :
 }
 
 void ResultView::write() {
-	std::cout << "Blacks: " << result.getRightlyPositionedCounter() << " "
-			<< "Whites: " << result.getRightlyColoredCounter();
+	util::IO::write("Blacks: ", result.getRightlyPositionedCounter());
+	util::IO::write(" Whites: ", result.getRightlyColoredCounter());
 
 }
 
