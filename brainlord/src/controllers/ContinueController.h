@@ -10,6 +10,9 @@ public:
 	ContinueController(models::Game& game);
 	virtual ~ContinueController();
 	void accept(ControllerVisitor* visitor) override;
+
+	void doContinue();
+	void doExit();
 };
 
 }
